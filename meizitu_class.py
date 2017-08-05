@@ -9,9 +9,10 @@ class Mzitu():
         User_Agent='Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36'
         headers={'User-Agent':User_Agent}
         content=requests.get(url,headers)
+        return content
     def mkdir(self,path):
-        path=path.trip()
-        isExists=os.path.exists(os.path.join("F:\mzitu"))
+        path=path.strip()
+        isExists=os.path.exists(os.path.join("F:\mzitu",path))
         if not isExists:
             print(u'建了一个名字叫做',path,u'的文件夹')
             os.makedirs(os.path.join("F:\mzitu",path))
